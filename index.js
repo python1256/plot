@@ -29,8 +29,9 @@ app.post("/send_token",async(req,res)=>{
         });
         // Got access token. Parse string response to JSON
         accessToken = JSON.parse(result).access_token;
+        res.status(201).send(accessToken);
     } catch (e) {
-        console.log("Error=====", e);
+        res.status(400).send("Error=====", e);
     }
 })
 
