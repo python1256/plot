@@ -11,6 +11,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
+app.get("/",(req,res)=>{
+    res.sendFile(path.join(__dirname+'/paruvedi.html'));
+})
 app.post("/send_token",async(req,res)=>{
     let code = req.body.code;
     let redirectUri = req.body.redirectUri;
